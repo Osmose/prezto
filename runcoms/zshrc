@@ -11,3 +11,31 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+alias ls="noglob ls --ignore='*.pyc' --color -B"
+alias ll="noglob ls --ignore='*.pyc' --color -lB"
+#unalias sl
+alias sl="nocorrect sl"
+
+alias compose='docker-compose'
+
+alias ql="qlmanage -p 2>/dev/null"
+
+# Make git autocompletion faster.
+__git_files () {
+    _wanted files expl 'local files' _files
+}
+
+source /opt/boxen/env.sh
+
+mag() {
+    ag --context --smart-case --skip-vcs-ignores --group --color "$1" | most
+}
+
+# Powerline
+#. /opt/boxen/homebrew/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
+#if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+#pyenv virtualenvwrapper
+
+# added by travis gem
+[ -f /Users/mkelly/.travis/travis.sh ] && source /Users/mkelly/.travis/travis.sh
